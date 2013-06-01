@@ -21,7 +21,8 @@ use Locale;
 use Zend\EventManager\EventInterface;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
-use Zend\I18n\Translator\Translator;
+use Zend\I18n\Translator\Translator;     // comment out for ZF 2.2.0
+// use Zend\Mvc\I18n\Translator;         // comment in for ZF 2.2.0        
 use Zend\Mvc\MvcEvent;
 use Zend\Validator\AbstractValidator;
 use Zend\View\Model\ViewModel;

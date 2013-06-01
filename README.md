@@ -53,3 +53,35 @@ aus dem Addison-Wesley Verlag installieren Sie wie folgt:
   
 * Nun sollten Sie das Projekt unter http://luigis-pizza.local in Ihrem Browser 
   aufrufen können.
+
+Hinweise zum Zend Framework Release 2.2.0
+-----------------------------------------
+
+Durch Änderungen im Translator wird im Application Modul leider folgender Fatal
+Error ausgegeben:
+
+* Catchable fatal error: Argument 1 passed to Zend\Validator\AbstractValidator::setDefaultTranslator() 
+  must be an instance of Zend\Validator\Translator\TranslatorInterface, 
+  instance of Zend\I18n\Translator\Translator given, called in 
+  /home/devhost/zf2buch/kapitel22/module/Application/src/Application/Listener/ApplicationListener.php 
+  on line 157 and defined in 
+  /home/devhost/zf2buch/kapitel22/vendor/zendframework/zendframework/library/Zend/Validator/AbstractValidator.php 
+  on line 472
+  
+  Um die Skripte mit ZF 2.2.0 zu nutzen, bitte in der Datei 
+  module/Application/src/Application/Listener/ApplicationListener.php bei den
+  `use` Statements die Zeile
+  
+  ```
+  use Zend\I18n\Translator\Translator;
+  ```
+    
+  auskommentieren und die Zeile
+  
+  ```
+  use Zend\Mvc\I18n\Translator;
+  ```
+    
+  einkommentieren.
+  
+  
